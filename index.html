@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel=stylesheet href="main.css">
+		<script type="text/javascript" src="main.js"></script>
+		<title>Rest Countries API Project</title>
+	</head>
+	<body>
+        <h2>Rest Countries API</h2>
+        <form>
+			<div class="col">
+				<div>Search for country by...</div>
+				<input type="radio" name="searchType" id="rNameCode" checked>Name/Code
+				<input type="radio" name="searchType" id="rFull">Full Name
+				<input type="radio" name="searchType" id="rAll">List All
+			</div>
+			<div class="col">
+				<div>Sort by...</div>
+				<input type="radio" name="sortType" id="rNameSort" checked>Name
+				<input type="radio" name="sortType" id="rPopSort">Population<br /><br />
+			</div>
+            <input id="input" type="text" name="input" placeholder="Afghanistan" autofocus>
+            <button id="submit" type="button" onclick="searchRestCountries();">Submit</button>
+        </form>
+        <div id="result"></div>
+		<script>
+			(function() {
+				var input = document.getElementById('input');
+				input.addEventListener('keypress', function(e) {
+					if (e.keyCode == 13) {
+						e.preventDefault();
+						searchRestCountries();
+					}
+				});
+			}());
+		</script>
+    </body>
+</html>
